@@ -17,6 +17,7 @@
 		E3FA06F627B16DBD00D8182F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06F527B16DBD00D8182F /* ViewModel.swift */; };
 		E3FA06F827B16E3200D8182F /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06F727B16E3200D8182F /* UserDetailView.swift */; };
 		E3FA06FA27B16E9700D8182F /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06F927B16E9700D8182F /* DownloadImage.swift */; };
+		E3FA06FC27B16FF600D8182F /* UserSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06FB27B16FF600D8182F /* UserSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E3FA06F527B16DBD00D8182F /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		E3FA06F727B16E3200D8182F /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		E3FA06F927B16E9700D8182F /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
+		E3FA06FB27B16FF600D8182F /* UserSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				E3FA06EF27B16B9B00D8182F /* WebView.swift */,
 				E3FA06D327B160F300D8182F /* ContentView.swift */,
 				E3FA06F727B16E3200D8182F /* UserDetailView.swift */,
+				E3FA06FB27B16FF600D8182F /* UserSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FA06FC27B16FF600D8182F /* UserSearchView.swift in Sources */,
 				E3FA06F027B16B9B00D8182F /* WebView.swift in Sources */,
 				E3FA06FA27B16E9700D8182F /* DownloadImage.swift in Sources */,
 				E3FA06F627B16DBD00D8182F /* ViewModel.swift in Sources */,
