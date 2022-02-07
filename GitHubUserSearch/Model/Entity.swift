@@ -1,5 +1,5 @@
 //
-//  GitHubModel.swift
+//  Entity.swift
 //  GitHubUserSearch
 //
 //  Created by yorifuji on 2022/02/07.
