@@ -15,6 +15,8 @@
 		E3FA06EC27B16A7C00D8182F /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06EB27B16A7C00D8182F /* GitHubAPI.swift */; };
 		E3FA06F027B16B9B00D8182F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06EF27B16B9B00D8182F /* WebView.swift */; };
 		E3FA06F627B16DBD00D8182F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06F527B16DBD00D8182F /* ViewModel.swift */; };
+		E3FA06F827B16E3200D8182F /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06F727B16E3200D8182F /* UserDetailView.swift */; };
+		E3FA06FA27B16E9700D8182F /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FA06F927B16E9700D8182F /* DownloadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		E3FA06EB27B16A7C00D8182F /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		E3FA06EF27B16B9B00D8182F /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E3FA06F527B16DBD00D8182F /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E3FA06F727B16E3200D8182F /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		E3FA06F927B16E9700D8182F /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			children = (
 				E3FA06E527B1694000D8182F /* Entity.swift */,
 				E3FA06EB27B16A7C00D8182F /* GitHubAPI.swift */,
+				E3FA06F927B16E9700D8182F /* DownloadImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				E3FA06EF27B16B9B00D8182F /* WebView.swift */,
 				E3FA06D327B160F300D8182F /* ContentView.swift */,
+				E3FA06F727B16E3200D8182F /* UserDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,9 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3FA06F027B16B9B00D8182F /* WebView.swift in Sources */,
+				E3FA06FA27B16E9700D8182F /* DownloadImage.swift in Sources */,
 				E3FA06F627B16DBD00D8182F /* ViewModel.swift in Sources */,
 				E3FA06E627B1694000D8182F /* Entity.swift in Sources */,
 				E3FA06D427B160F300D8182F /* ContentView.swift in Sources */,
+				E3FA06F827B16E3200D8182F /* UserDetailView.swift in Sources */,
 				E3FA06D227B160F300D8182F /* GitHubUserSearchApp.swift in Sources */,
 				E3FA06EC27B16A7C00D8182F /* GitHubAPI.swift in Sources */,
 			);
