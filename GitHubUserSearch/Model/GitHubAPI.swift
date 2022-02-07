@@ -34,7 +34,9 @@ enum GitHubAPIClient: GitHubAPIProtocol {
 
     private static func makeRequest(url: URL) -> URLRequest {
         var request = URLRequest(url: url)
-        request.addValue("token \(GITHUB_PAT)", forHTTPHeaderField: "Authorization")
+        if GITHUB_PAT.isEmpty == false {
+            request.addValue("token \(GITHUB_PAT)", forHTTPHeaderField: "Authorization")
+        }
         return request
     }
 
