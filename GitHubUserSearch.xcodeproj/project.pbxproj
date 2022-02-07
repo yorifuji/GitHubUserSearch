@@ -51,8 +51,10 @@
 		E3FA06D027B160F300D8182F /* GitHubUserSearch */ = {
 			isa = PBXGroup;
 			children = (
+				E3FA06E227B168B700D8182F /* View */,
+				E3FA06E127B168AD00D8182F /* Model */,
+				E3FA06DF27B1689500D8182F /* API */,
 				E3FA06D127B160F300D8182F /* GitHubUserSearchApp.swift */,
-				E3FA06D327B160F300D8182F /* ContentView.swift */,
 				E3FA06D527B160F400D8182F /* Assets.xcassets */,
 				E3FA06D727B160F400D8182F /* Preview Content */,
 			);
@@ -65,6 +67,28 @@
 				E3FA06D827B160F400D8182F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E3FA06DF27B1689500D8182F /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E3FA06E127B168AD00D8182F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3FA06E227B168B700D8182F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3FA06D327B160F300D8182F /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
