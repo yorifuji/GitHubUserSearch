@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct User: Decodable, Identifiable {
     let id: Int
@@ -39,3 +40,12 @@ struct Repository: Decodable, Identifiable {
     let description: String?
     let htmlUrl: String
 }
+
+struct UserInformation {
+    let login: String
+    let name: String?
+    let followers: Int
+    let following: Int
+    let image: UIImage?
+}
+
