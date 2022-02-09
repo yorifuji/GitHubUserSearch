@@ -41,8 +41,7 @@ class GitHubUsers: ObservableObject {
 }
 
 class GitHubUser: ObservableObject {
-    @Published var user: UserResponse?
-    @Published var repositoryUrl: String?
+    @Published var userInfo: UserInformation?
     var cancellables = Set<AnyCancellable>()
 
     func getUser(url: String) -> Void {
@@ -66,7 +65,15 @@ class GitHubUser: ObservableObject {
             }
         } receiveValue: { response in
             print(response)
-            self.user = response
+            let user = response
+            downloadImageAsync(url: URL(string: user.avatarUrl)!) { image in
+                self.userInfo = UserInformation(
+                    login: user.login,
+                    name: user.name,
+                    followers: user.followers,
+                    following: user.following,
+                    image: image)
+            }
         }
         .store(in: &cancellables)
 

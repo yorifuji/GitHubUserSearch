@@ -8,78 +8,105 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    @ObservedObject var userModel = GitHubUser()
-    @ObservedObject var userRepositoryModel = GitHubUserRepository()
-    @State var image: UIImage?
     let user: User
     var body: some View {
         VStack {
-            if let user = userModel.user {
-                VStack {
-                    if let image = image {
-                        HStack {
-                            Image(uiImage: image)
-                                .resizable()
-                                .frame(width: 50, height: 50, alignment: .center)
-                                .clipShape(Circle())
-                            VStack {
-                                HStack {
-                                    Text(user.name ?? "")
-                                        .font(.title)
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text(user.login)
-                                        .foregroundColor(.secondary)
-                                    Spacer()
-                                }
-                            }
-                            Spacer()
-                        }
-                    }
-                    HStack {
-                        HStack {
-                            Text(String(user.followers))
-                                .fontWeight(.bold)
-                            Text("フォロワー")
-                            Spacer()
-                        }
-                        HStack {
-                            Text(String(user.following))
-                                .fontWeight(.bold)
-                            Text("フォロー中")
-                            Spacer()
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray, lineWidth: 1.0))
-                .padding()
-            }
-            List {
-                ForEach(userRepositoryModel.repositories) { repo in
-                    if !repo.fork {
-                        NavigationLink(destination: WebView(url: repo.htmlUrl)) {
-                            RepositoryDetailView(repository: repo)
-                        }
-                    }
-                }
-            }
-            .listStyle(PlainListStyle())
-        }
-        .onAppear {
-            userModel.getUser(url: user.url)
-            userRepositoryModel.getRepository(url: user.reposUrl)
-            downloadImageAsync(url: URL(string: user.avatarUrl)!) { image in
-                self.image = image
-            }
+            UserInformationView(user: user)
+            RepositoryListView(user: user)
         }
     }
 }
 
-struct RepositoryDetailView: View {
+struct UserInformationView: View {
+    let user: User
+    @ObservedObject var viewModel = GitHubUser()
+    var body: some View {
+        VStack {
+            if let userInfo = viewModel.userInfo {
+                UserInformationCard(userInfo: userInfo)
+            }
+        }
+        .onAppear {
+            viewModel.getUser(url: user.url)
+        }
+    }
+}
+
+struct UserInformationCard: View {
+    let userInfo: UserInformation
+    var body: some View {
+        VStack {
+            HStack {
+                Image(uiImage: userInfo.image ?? UIImage())
+                    .resizable()
+                    .frame(width: 50, height: 50, alignment: .center)
+                    .clipShape(Circle())
+                VStack {
+                    HStack {
+                        Text(userInfo.name ?? "")
+                            .font(.title)
+                        Spacer()
+                    }
+                    HStack {
+                        Text(userInfo.login)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                }
+                Spacer()
+            }
+            HStack {
+                HStack {
+                    Text(String(userInfo.followers))
+                        .fontWeight(.bold)
+                    Text("フォロワー")
+                    Spacer()
+                }
+                HStack {
+                    Text(String(userInfo.following))
+                        .fontWeight(.bold)
+                    Text("フォロー中")
+                    Spacer()
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .overlay(RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1.0))
+        .padding()
+    }
+}
+
+struct UserInformationCard_Previews: PreviewProvider {
+    static var previews: some View {
+        UserInformationCard(userInfo: UserInformation(login: "test", name: "Test", followers: 0, following: 0, image: UIImage(systemName: "person.fill")))
+            .previewLayout(.sizeThatFits)
+    }
+}
+
+
+struct RepositoryListView: View {
+    let user: User
+    @ObservedObject var viewModel = GitHubUserRepository()
+    var body: some View {
+        List {
+            ForEach(viewModel.repositories) { repo in
+                if !repo.fork {
+                    NavigationLink(destination: WebView(url: repo.htmlUrl)) {
+                        RepositoryRow(repository: repo)
+                    }
+                }
+            }
+        }
+        .listStyle(PlainListStyle())
+        .onAppear {
+            viewModel.getRepository(url: user.reposUrl)
+        }
+    }
+}
+
+struct RepositoryRow: View {
     let repository: Repository
     var body: some View {
         VStack {
@@ -104,5 +131,13 @@ struct RepositoryDetailView: View {
                 Spacer()
             }
         }
+        .padding()
+    }
+}
+
+struct RepositoryRow_Previews: PreviewProvider {
+    static var previews: some View {
+        RepositoryRow(repository: Repository(id: 0, name: "Name", fullName: "Full Name", language: "Swift", stargazersCount: 0, fork: false, description: "Test Repository", htmlUrl: "http://github.com"))
+            .previewLayout(.sizeThatFits)
     }
 }

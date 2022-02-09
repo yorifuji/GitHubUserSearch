@@ -36,7 +36,7 @@ struct UserSearchView: View {
                 List {
                     ForEach(userListModel.users) { user in
                         NavigationLink(destination: UserDetailView(user: user)) {
-                            SearchUsersView(user: user)
+                            SearchUserRow(user: user)
                         }
                     }
                 }
@@ -47,7 +47,7 @@ struct UserSearchView: View {
     }
 }
 
-struct SearchUsersView: View {
+struct SearchUserRow: View {
     let user: User
     @State var image: UIImage?
     var body: some View {
@@ -65,5 +65,16 @@ struct SearchUsersView: View {
                 self.image = image
             }
         }
+    }
+}
+
+struct SearchUserRow_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchUserRow(user: User(
+            id: 0,
+            login: "Test User!!!",
+            avatarUrl: "https://avatars.githubusercontent.com/u/583231?v=4",
+            reposUrl: "",
+            url: "")).previewLayout(.sizeThatFits)
     }
 }
