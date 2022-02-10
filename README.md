@@ -48,3 +48,14 @@
 - `MVVM` を意識して実装を分割した（正しく実装できているか自信はない）
 - APIを叩いてデータを取得する処理は `Combine` を使って実装した
 
+# 認証
+
+- API認証に`Personal Access Token`を使用する場合は以下の変数にセットしてください
+
+
+
+```
+private let GITHUB_PAT = ""
+```
+
+https://github.com/yorifuji/GitHubUserSearch/blob/main/GitHubUserSearch/Model/GitHubAPI.swift#L11
